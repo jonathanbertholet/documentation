@@ -36,8 +36,8 @@ Settings`, click :guilabel:`Update Info` in the :guilabel:`Companies` section, a
 
 To initialize the OSCU:
 
-#. Go to :menuselection:`Settings --> General Settings` and scroll down to the :guilabel:`Kenya
-   eTIMS Integration` section.
+#. Go to :menuselection:`Accounting --> Configuration --> Settings` and scroll down to the
+   :guilabel:`Kenya eTIMS Integration` section.
 #. Set the :guilabel:`eTIMS Server Mode` to :guilabel:`Test` for the initialization.
 #. Enter the :guilabel:`Serial Number` of the device and tick the two check boxes.
 #. Click :guilabel:`Initialize OSCU`.
@@ -61,6 +61,11 @@ is generated for each company on that database with its **country** set to :guil
 serial number is generated based on the VAT number of the company (regardless of its validity). It
 is a unique and sequential serial number starting with the prefix `ODOO` followed by the company's
 **VAT number** and a sequence of numbers.
+
+.. tip::
+   If a :guilabel:`Device is already installed` or :guilabel:`The registration failed` error message
+   appears, either the change of solution request (relevant party) or the service request (KRA) has
+   not been approved yet. Contact the relevant parties in accordance.
 
 Registering on eTIMS
 --------------------
@@ -91,6 +96,15 @@ If you do not have an account yet:
    - Part 4: Tick **OSCU**, enter Odoo KE LTD PIN `PO52112956W`, and enter the Odoo version you're
      using (17.0 or onwards).
    - Part 5: Check the mandatory boxes, enter a date, and sign.
+
+Integration tokens
+------------------
+
+To obtain integration tokens for eTIMS, send a request to the email address `etims@mail.odoo.com`.
+In the email, include your eTIMS portal credentials (KRA pin and password) and your Odoo database.
+
+Your token will be sent via email on the same day. Once obtained, input the token in the
+:guilabel:`Integration Token` field to complete your service request.
 
 eTIMS codes
 -----------
@@ -199,12 +213,6 @@ per branch.
    - Creating an invoice on **branch 1**: INV/2024/00001;
    - Creating an invoice on **branch 2**: INV/2024/00001;
    - Creating an invoice on the **parent company**: INV/2024/00001.
-
-Integration tokens
-------------------
-
-To obtain integration tokens for eTIMS, send a request to the following email address:
-etims@mail.odoo.com.
 
 Insurance
 =========
@@ -322,6 +330,16 @@ it:
   number**, **item count**, **internal date**, and **receipt signature**;
 - The **KRA tax table**;
 - A unique **KRA QR code** for the signed invoice.
+
+.. tip::
+   If the error message :guilabel:`Invoice number already exists.` appears:
+
+   #. Go to your eTIMS portal and check the last invoice number used.
+   #. Open your Odoo database, activate :ref:`debug mode <developer-mode/activation>`, and go to
+      :menuselection:`Settings --> Technical --> Sequences` and search for :guilabel:`eTIMS
+      Customer Invoice Number`.
+   #. Click it and change the :guilabel:`Next Number` field to the next available sequence number
+      (for example, if the last invoice number on eTIMS was 31, set this field to 32).
 
 Imports
 =======
