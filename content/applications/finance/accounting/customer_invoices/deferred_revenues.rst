@@ -94,14 +94,14 @@ the revenue.
 Reporting
 =========
 
-The deferred revenue report computes an overview of the necessary deferral entries for each account.
-To access it, go to :menuselection:`Accounting --> Reporting --> Deferred Revenue`.
+The deferred revenues report computes an overview of the necessary deferral entries for each
+account. To access it, go to :menuselection:`Accounting --> Review --> Deferred Revenues`.
 
 To view the journal items of each account, click on the account name and then :guilabel:`Journal
 Items`.
 
 .. image:: deferred_revenues/deferred_revenue_report.png
-   :alt: Deferred revenue report
+   :alt: Deferred revenues report
 
 .. note::
    Only invoices whose accounting date is before the end of the period of the report are taken
